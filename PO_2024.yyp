@@ -36,7 +36,6 @@
   "name":"PO_2024",
   "resources":[
     {"id":{"name":"nte_spr_wall","path":"notes/nte_spr_wall/nte_spr_wall.yy",},},
-    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_floor","path":"objects/obj_floor/obj_floor.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
