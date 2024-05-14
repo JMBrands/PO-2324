@@ -20,10 +20,9 @@
   "ResourceOrderSettings":[
     {"name":"obj_floor","order":3,"path":"objects/obj_floor/obj_floor.yy",},
     {"name":"obj_player","order":1,"path":"objects/obj_player/obj_player.yy",},
-    {"name":"spr_background","order":2,"path":"sprites/spr_background/spr_background.yy",},
-    {"name":"spr_cam","order":3,"path":"sprites/spr_cam/spr_cam.yy",},
+    {"name":"obj_room","order":4,"path":"objects/obj_room/obj_room.yy",},
+    {"name":"spr_chonk","order":2,"path":"sprites/spr_chonk/spr_chonk.yy",},
     {"name":"spr_floor","order":4,"path":"sprites/spr_floor/spr_floor.yy",},
     {"name":"spr_normie","order":1,"path":"sprites/spr_normie/spr_normie.yy",},
-    {"name":"spr_chonk","order":2,"path":"sprites/spr_chonk/spr_chonk.yy",},
   ],
 }

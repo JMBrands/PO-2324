@@ -1,8 +1,8 @@
 /// @description Create event
 // You can write your code in this editor
 
-x_spd = 0.125;
-y_spd = 0.125;
+x_spd = 0.06125;
+y_spd = 0.06125;
 
 enum forms {
 	SMOL,
