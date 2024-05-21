@@ -1,8 +1,8 @@
 ## Wereld
-	- ### Roguelite
-		- Random gegenereerd
-		- Dood = Opnieuw starten
-		- Enemies worden later in het spel krachtiger
+	- Roguelite
+	- Random gegenereerd
+	- Dood = Opnieuw starten
+	- Enemies worden later in het spel krachtiger
 	- Top-down (misschien isometrisch)
 	- verdeeld in rooms
 		- worden pas gegenereerd als je in een aangrenzende room bent

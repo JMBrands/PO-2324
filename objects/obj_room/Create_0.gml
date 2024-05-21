@@ -4,8 +4,8 @@ randomize();
 
 floor_type=irandom(2);
 
-x = 256;
-y = 256;
+x = 512;
+y = 512;
 
 xoff = 32;
 yoff = 16;
@@ -18,61 +18,57 @@ for (var tx = -2; tx <= 2; tx++) {
 sides = irandom(15);
 
 nodes = ds_grid_create(15, 15);
-ds_grid_add_region(nodes, 5,5, 9,9, 0);
-ds_grid_add_region(nodes, 0,0, 4,4, 0);
-ds_grid_add_region(nodes, 10,0, 14,4, 0);
-ds_grid_add_region(nodes, 0,10, 4,14, 0);
-ds_grid_add_region(nodes, 10,10, 14,14, 0);
+ds_grid_set_region(nodes, 0,0, 14,14, 1);
+ds_grid_set_region(nodes, 5,5, 9,9, 0);
 
-regions = [[[5,0],[9,4]],[[10,5],[14,9]],[[5,10],[9,14]],[[0,5],[4,9]]];
+running = true;
+start = {"x": irandom(4), "y": irandom(4)};
+cur = start;
+connections = ds_grid_create(4,1);
+visited = ds_list_create();
+stack = ds_stack_create();
+its = 0;
 
-for (var region = 0; region < 4; region++) {
-	var reg = regions[region];
-	var sx = 0, sy = 0;
-	switch (region) {
-		case 0:
-			sx = 5;
-			sy = 4;
-			ds_grid_add_region(nodes, sx, sy, sx, irandom_range(sy-4,sy), 1);
-			ds_grid_add_region(nodes, sx+1, sy, sx+1, irandom_range(sy-4,sy), 1);
-			ds_grid_add_region(nodes, sx+2, sy, sx+2, irandom_range(sy-4,sy), 1);
-			ds_grid_add_region(nodes, sx+3, sy, sx+3, irandom_range(sy-4,sy), 1);
-			ds_grid_add_region(nodes, sx+4, sy, sx+4, irandom_range(sy-4,sy), 1);
-			break;
-		case 1:
-			sx = 10;
-			sy = 5;
-			ds_grid_add_region(nodes, sx, sy, irandom_range(sx+4,sx), sy, 1);
-			ds_grid_add_region(nodes, sx, sy+1, irandom_range(sx+4,sx), sy+1, 1);
-			ds_grid_add_region(nodes, sx, sy+2, irandom_range(sx+4,sx), sy+2, 1);
-			ds_grid_add_region(nodes, sx, sy+3, irandom_range(sx+4,sx), sy+3, 1);
-			ds_grid_add_region(nodes, sx, sy+4, irandom_range(sx+4,sx), sy+4, 1);
-			break;
-		case 2:
-			sx = 5;
-			sy = 10;
-			ds_grid_add_region(nodes, sx, sy, sx, irandom_range(sy+4,sy), 1);
-			ds_grid_add_region(nodes, sx+1, sy, sx+1, irandom_range(sy+4,sy), 1);
-			ds_grid_add_region(nodes, sx+2, sy, sx+2, irandom_range(sy+4,sy), 1);
-			ds_grid_add_region(nodes, sx+3, sy, sx+3, irandom_range(sy+4,sy), 1);
-			ds_grid_add_region(nodes, sx+4, sy, sx+4, irandom_range(sy+4,sy), 1);
-			break;
-		case 3:
-			sx = 4;
-			sy = 5;
-			ds_grid_add_region(nodes, sx, sy, irandom_range(sx-4,sx), sy, 1);
-			ds_grid_add_region(nodes, sx, sy+1, irandom_range(sx-4,sx), sy+1, 1);
-			ds_grid_add_region(nodes, sx, sy+2, irandom_range(sx-4,sx), sy+2, 1);
-			ds_grid_add_region(nodes, sx, sy+3, irandom_range(sx-4,sx), sy+3, 1);
-			ds_grid_add_region(nodes, sx, sy+4, irandom_range(sx-4,sx), sy+4, 1);
-			break;
-			
+while (running) {
+	ds_stack_push(stack, cur);
+	ds_grid_set(nodes, cur.x, cur.y, 0);
+	ds_list_add(visited, cur);
+	
+	var neighbours = check_neighbours(nodes, cur, (its > 20));
+	
+	if (!running)
+		break;
+	
+	if (ds_list_size(neighbours) < 1) {
+		ds_grid_set(nodes, cur.x, cur.y, 1);
+		ds_stack_pop(stack);
+		var tempcur = ds_stack_pop(stack);
+		cur = tempcur == undefined ? cur : tempcur;
+		ds_grid_set(nodes, cur.x, cur.y, 1);
+		ds_grid_resize(connections, 4, ds_grid_height((connections) -1));
+	} else {
+		var next = ds_list_find_value(neighbours, irandom(ds_list_size(neighbours)-1));
+		connections[# 0, ds_grid_height(connections) -1] = cur.x;
+		connections[# 1, ds_grid_height(connections) -1] = cur.y;
+		connections[# 2, ds_grid_height(connections) -1] = next.x;
+		connections[# 3, ds_grid_height(connections) -1] = next.y;
+		ds_grid_resize(connections, 4, ds_grid_height(connections) + 1);
+		cur = next;
+		if (ds_grid_height(connections) > 20)
+			ds_grid_set(nodes, start.x, start.y, 1);
 	}
+	
+	its++;
 }
 
 for (var tx = 0; tx < 15; tx++) {
+	var row = [];
+	for (var i = 0; i < 15; i++) {
+		row[i] = ds_grid_get(nodes, i, tx);
+	}
+	show_debug_message("{0}", row)
 	for (var ty = 0; ty < 15; ty++) {
-		if (ds_grid_get(nodes, tx, ty)) {
+		if (!ds_grid_get(nodes, tx, ty)) {
 			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), 150, obj_floor, {"image_index": floor_type});
 		}
 	}
