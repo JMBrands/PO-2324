@@ -56,10 +56,12 @@ var dy = round(vel_y * y_spd * delta_time / 1000 * 100) / 100;
 // collision
 
 while (!place_free(x, y) && dx ==0 && dy == 0) {
+	show_debug_message("stuck? {0}", irandom(10));
 	x--;
 }
 
-while (!place_free(x + dx*2, y + dy)) {
+while (!place_free(x + dx * 2, y) || ! place_free(x, y + dy)) {
+	show_debug_message("stuck with dx: {0} dy: {1}", dx, dy);
 	if (!place_free(x + dx*2, y)) {
 		dx -= 0.01 * sign(dx);
 		show_debug_message("stuck x: {0}", dx);
@@ -69,6 +71,7 @@ while (!place_free(x + dx*2, y + dy)) {
 		dy -= 0.01 * sign(dy);
 		show_debug_message("stuck y: {0}", dy);
 	}
+	
 	if (dx == 0 && dy == 0) {
 		show_debug_message("exit");
 		break;
