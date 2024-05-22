@@ -2,7 +2,7 @@
 // You can write your code in this editor
 randomize();
 
-floor_type=irandom(2);
+floor_type=irandom(3);
 
 x = 512;
 y = 512;
@@ -69,7 +69,9 @@ for (var tx = 0; tx < 15; tx++) {
 	show_debug_message("{0}", row)
 	for (var ty = 0; ty < 15; ty++) {
 		if (!ds_grid_get(nodes, tx, ty)) {
-			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), 150, obj_floor, {"image_index": floor_type});
+			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), -(y+(ty-6)*yoff+((tx-8)*xoff)/2) + 1024, obj_floor, {"image_index": floor_type});
+		} else {
+			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), -(y+(ty-6)*yoff+((tx-8)*xoff)/2) + 1024, obj_grid_wall);
 		}
 	}
 }

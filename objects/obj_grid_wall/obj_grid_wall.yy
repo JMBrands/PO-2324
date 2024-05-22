@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_floor",
+  "%Name":"obj_grid_wall",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_floor",
+  "name":"obj_grid_wall",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -28,10 +28,10 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
-    "name":"spr_floor",
-    "path":"sprites/spr_floor/spr_floor.yy",
+    "name":"spr_grid_wall",
+    "path":"sprites/spr_grid_wall/spr_grid_wall.yy",
   },
   "spriteMaskId":null,
   "visible":true,
