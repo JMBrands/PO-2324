@@ -1,0 +1,67 @@
+## Wereld
+	- Roguelite
+	- Random gegenereerd
+	- Dood = Opnieuw starten
+	- Enemies worden later in het spel krachtiger
+	- Top-down (misschien isometrisch)
+	- verdeeld in rooms
+		- worden pas gegenereerd als je in een aangrenzende room bent
+- ## Stats
+	- Kunnen worden verbeterd met Stat Points
+	- Resetten elke run
+	- ### DEF: Defence
+		- Geeft kans om inkomende Damage minder te maken
+	- ### DEX: Dexterity
+		- Nodig voor skills
+	- ### DMG: Damage
+		- Maakt aanvallen krachtiger
+	- ### SPD: Speed
+		- Sneller lopen & Minder cooldown op aanvallen
+	- ### VIT: Vitality
+		- HP
+- ## Leveling
+	- Enemies, Loot geven XP
+	- Benodigde XP wordt per level hoger
+	- 1 level = 1 Skill Point, 1 Stat Point
+		- Skill Points worden behouden tussen runs, Stat Points resetten elke run
+- ### Shapeshifting
+	- #### smol
+		- snel
+		- weinig DMG
+	- #### normaal
+		- meh SPD
+		- meh DMG
+	- #### chonk
+		- sloom
+		- hoge DMG
+- ## Skill tree
+	- Upgrades kosten Skill Points
+	- Behouden tussen runs
+	- ### Common
+		- overall stat upgrades (meh kwaliteit)
+			- Begin nieuwe run met hogere stats
+	- ### Per grootte
+		- #### smol
+			- stat upgrades (prima kwaliteit)
+				- Begin nieuwe run met hogere stats voor smol
+			- skills als dodge, speed boost
+		- #### normaal
+			- stat upgrades (prima kwaliteit)
+				- Begin nieuwe run met hogere stats voor normal
+			- skills als invincibility, spells
+		- #### chonk
+			- stat upgrades (prima kwaliteit)
+				- Begin nieuwe run met hogere stats voor chonk
+				  id:: 66412cf7-0e21-4bb0-ac23-53b4818c9c78
+			- skills als smash, charge
+- ## Equipment
+	- ### Charms
+		- alle groottes
+		- status effects
+		- kan DEX, SPD, DMG, DEF, VIT beinvloeden
+	- ### Armor
+		- per grootte
+		- kan DEX, SPD, DEF beinvloeden
+	- ### Wapens
+		- per grootte
+		- kan DMG, SPD beinvloeden
