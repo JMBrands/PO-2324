@@ -18,6 +18,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"obj_blub","order":8,"path":"objects/obj_blub/obj_blub.yy",},
     {"name":"obj_camera","order":5,"path":"objects/obj_camera/obj_camera.yy",},
     {"name":"obj_floor","order":3,"path":"objects/obj_floor/obj_floor.yy",},
     {"name":"obj_grid_wall","order":7,"path":"objects/obj_grid_wall/obj_grid_wall.yy",},
@@ -28,9 +29,11 @@
     {"name":"check_neighbour","order":1,"path":"scripts/check_neighbour/check_neighbour.yy",},
     {"name":"check_visited","order":4,"path":"scripts/check_visited/check_visited.yy",},
     {"name":"in_border","order":3,"path":"scripts/in_border/in_border.yy",},
+    {"name":"spr_blub","order":4,"path":"sprites/spr_blub/spr_blub.yy",},
     {"name":"spr_chonk","order":2,"path":"sprites/spr_chonk/spr_chonk.yy",},
     {"name":"spr_floor","order":1,"path":"sprites/spr_floor/spr_floor.yy",},
-    {"name":"spr_normie","order":1,"path":"sprites/spr_normie/spr_normie.yy",},
     {"name":"spr_grid_wall","order":3,"path":"sprites/spr_grid_wall/spr_grid_wall.yy",},
+    {"name":"spr_background","order":5,"path":"sprites/spr_background/spr_background.yy",},
+    {"name":"spr_normie","order":1,"path":"sprites/spr_normie/spr_normie.yy",},
   ],
 }

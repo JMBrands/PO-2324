@@ -50,31 +50,31 @@ vel_x = ((vel_x == NaN) ? 0 : vel_x);
 vel_y = ((vel_y == NaN) ? 0 : vel_y);
 
 // calculate delta x & y
-var dx = round(vel_x * x_spd * delta_time / 1000 * 100) / 100;
-var dy = round(vel_y * y_spd * delta_time / 1000 * 100) / 100;
+var dx = round(vel_x * x_spd * delta_time / 1000 * 10) / 10;
+var dy = round(vel_y * y_spd * delta_time / 1000 * 10) / 10;
 
 // collision
 
 while (!place_free(x, y) && dx ==0 && dy == 0) {
-	show_debug_message("stuck? {0}", irandom(10));
 	x--;
 }
 
 while (!place_free(x + dx * 2, y) || ! place_free(x, y + dy)) {
-	show_debug_message("stuck with dx: {0} dy: {1}", dx, dy);
+	if (dx == 0 && dy == 0)
+		break; 
+	
 	if (!place_free(x + dx*2, y)) {
-		dx -= 0.01 * sign(dx);
-		show_debug_message("stuck x: {0}", dx);
+		if (dx == 0)
+			break;
+		dx -= 0.1 * sign(dx);
+		dx = round(dx * 10) / 10;
 	}
 	
 	if (!place_free(x, y + dy)) {
-		dy -= 0.01 * sign(dy);
-		show_debug_message("stuck y: {0}", dy);
-	}
-	
-	if (dx == 0 && dy == 0) {
-		show_debug_message("exit");
-		break;
+		if (dy == 0)
+			break;
+		dy -= 0.1 * sign(dy);
+		dy = round(dy * 10) / 10;
 	}
 }
 
@@ -82,5 +82,6 @@ while (!place_free(x + dx * 2, y) || ! place_free(x, y + dy)) {
 //movement
 x += dx*2/(formindex+1);
 y += dy/(formindex+1);
+
 
 depth = 1024 - y;

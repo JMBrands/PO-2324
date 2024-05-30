@@ -9,5 +9,6 @@ enum forms {
 	CHONK
 }
 
-formindex = forms.SMOL;
+formindex = forms.NORMIE;
 sprites = [spr_smol, spr_normie, spr_chonk];
+sprite_index = sprites[formindex];

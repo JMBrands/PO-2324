@@ -15,7 +15,6 @@ for (var tx = -2; tx <= 2; tx++) {
 	}
 }
 
-sides = irandom(15);
 
 nodes = ds_grid_create(15, 15);
 ds_grid_set_region(nodes, 0,0, 14,14, 1);
@@ -71,7 +70,9 @@ for (var tx = 0; tx < 15; tx++) {
 		if (!ds_grid_get(nodes, tx, ty)) {
 			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), -(y+(ty-6)*yoff+((tx-8)*xoff)/2) + 1024, obj_floor, {"image_index": floor_type});
 		} else {
-			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), -(y+(ty-6)*yoff+((tx-8)*xoff)/2) + 1024, obj_grid_wall);
+			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), -(y+(ty-6)*yoff+((tx-8)*xoff)/2) + 1024, obj_grid_wall, {"unbreakable": false});
 		}
 	}
 }
+
+mp_grid_add_instances(global.grid, obj_grid_wall, 1);

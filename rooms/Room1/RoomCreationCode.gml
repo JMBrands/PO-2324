@@ -1,1 +1,1 @@
-global.gravity = 9.81/fps*16;
+global.grid = mp_grid_create(0, 256, 70*2, 70, 8, 8);
