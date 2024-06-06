@@ -1,1 +1,1 @@
-global.grid = mp_grid_create(0, 256, 70*2, 70, 8, 8);
+global.grid = mp_grid_create(0, 256, 70*4, 70*2, 4, 4);

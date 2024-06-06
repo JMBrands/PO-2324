@@ -1,6 +1,3 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-x_spd = 0.02;
-y_spd = 0.02;
-path = path_add();
+instance_create_depth(x, y, depth, obj_floor, {"image_index": obj_room.floor_type});

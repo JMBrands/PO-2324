@@ -1,18 +1,20 @@
 {
   "$GMObject":"",
   "%Name":"obj_blub",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"obj_blub",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_abs_enemy","path":"objects/obj_abs_enemy/obj_abs_enemy.yy",},"propertyId":{"name":"spd","path":"objects/obj_abs_enemy/obj_abs_enemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.02",},
+  ],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_abs_enemy",
+    "path":"objects/obj_abs_enemy/obj_abs_enemy.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -29,10 +31,10 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
-    "name":"spr_blub",
-    "path":"sprites/spr_blub/spr_blub.yy",
+    "name":"spr_blub_chonk",
+    "path":"sprites/spr_blub_chonk/spr_blub_chonk.yy",
   },
   "spriteMaskId":null,
   "visible":true,

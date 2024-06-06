@@ -69,6 +69,10 @@ for (var tx = 0; tx < 15; tx++) {
 	for (var ty = 0; ty < 15; ty++) {
 		if (!ds_grid_get(nodes, tx, ty)) {
 			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), -(y+(ty-6)*yoff+((tx-8)*xoff)/2) + 1024, obj_floor, {"image_index": floor_type});
+			if (irandom(30) == 0 && tx != 8 && ty != 8) {
+				var form = irandom_range(0,2);
+				instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), -(y+(ty-6)*yoff+((tx-8)*xoff)/2) + 1024, obj_blub, {"spd": 0.02 * (form + 1), "sprite_index": [spr_blub_chonk, spr_blub_normie, spr_blub_smol][form]});
+			}
 		} else {
 			instance_create_depth((x+(tx-8)*xoff-2*((ty-8)*yoff)), (y+(ty-6)*yoff+((tx-8)*xoff)/2), -(y+(ty-6)*yoff+((tx-8)*xoff)/2) + 1024, obj_grid_wall, {"unbreakable": false});
 		}
