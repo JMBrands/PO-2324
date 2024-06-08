@@ -4,6 +4,10 @@
 // restart when r pressed
 if (keyboard_check(ord("R")))
 	game_restart();
+	
+if (hp <= 0) {
+	game_end(0);
+}
 
 // key checks
 var vel_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
@@ -36,15 +40,38 @@ if (vel_x < 0) {
 	}	
 }
 
+// movement normalization
+if (sqrt(vel_x*vel_x + vel_y*vel_y) > 0) {
+	var alpha = arctan2(vel_y, vel_x);
+
+	vel_x = cos(alpha);
+	vel_y = sin(alpha);
+	movement_angle = alpha;
+}
 
 // skills
-if (skill_1 && mp >= 10) {
+if (skill_1) {
 	switch (formindex) {
 		case forms.SMOL:
+			if (mp < 10 || skill_cooldown || !place_free(x + (128 * cos(movement_angle)), y + (64 * sin(movement_angle))))
+				break;
+			x += (128 * cos(movement_angle));
+			y += (64 * sin(movement_angle));
+			mp -= 10;
+			skill_cooldown = true;
+			alarm[2] = 15;
 			break;
 		case forms.NORMIE:
+			if (mp < 20 || skill_cooldown)
+				break;
+			skill_cooldown = true;
+			alarm[2] = 45;
+			instance_create_depth(x, y, 0, obj_skill_normie);
+			mp -= 20;
 			break;
 		case forms.CHONK:
+			if (mp < 10) 
+				break;
 			var wall;
 			switch (facing) {
 				case facings.NORTHEAST:
@@ -106,13 +133,6 @@ if (skill_1 && mp >= 10) {
 }
 
 // movement
-if (sqrt(vel_x*vel_x + vel_y*vel_y) > 0) {
-	var alpha = arctan2(vel_y, vel_x);
-
-	vel_x = cos(alpha);
-	vel_y = sin(alpha);
-	
-}
 
 if (key_form_cycle) {
 	var enough_space = true;

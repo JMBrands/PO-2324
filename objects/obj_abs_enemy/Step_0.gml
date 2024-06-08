@@ -18,3 +18,6 @@ if (seen > 0) {
 
 depth = 1024 - y;
 
+if (hp <= 0) {
+	instance_destroy();
+}
