@@ -80,3 +80,5 @@ for (var tx = 0; tx < 15; tx++) {
 }
 
 mp_grid_add_instances(global.grid, obj_grid_wall, 1);
+obj_player.x = room_width / 2;
+obj_player.y = room_height / 2;

@@ -17,5 +17,12 @@ if (mouse_hovering) {
 }
 
 if ((obj_menu.selected == object_index && check_confirm()) || (mouse_hovering && mouse_check_button_pressed(mb_left))) {
+	audio_play_sound(snd_beep, 1, false);
 	event_user(0);
 }
+
+if (mouse_hovering && mh_old != mouse_hovering) {
+	audio_play_sound(snd_click, 1, false);
+}
+
+mh_old = mouse_hovering;

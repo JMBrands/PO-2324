@@ -6,3 +6,4 @@ if (selected == noone) {
 } else {
 	selected = selectables[(array_get_index(selectables, selected) + array_length(selectables) - 1) % array_length(selectables)];
 }
+audio_play_sound(snd_click, 1, false);

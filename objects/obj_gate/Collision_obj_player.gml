@@ -2,5 +2,5 @@
 // You can write your code in this editor
 if (!instance_exists(obj_abs_enemy)) {
 	obj_room.roomnum++;
-	room_restart();
+	obj_room.darkening = true;
 }

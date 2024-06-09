@@ -2,9 +2,6 @@
 // You can write your code in this editor
 var width = display_get_gui_width();
 var height = display_get_gui_height();
-draw_text(10, 10, string("{0}, {1}", x, y));
-draw_text(500, 10, irandom(100));
-draw_text(10, 50, int64((1000000/delta_time)));
 
 // healthbar
 draw_healthbar(width/64 + ((width/4)/128) * 2, height - (height/8) + ((height/16)/16) * 9, width/64 + ((width/4)/128) * 126, height - (height/8) + ((height/16)/16) * 12, display_hp / max_health * 100, make_color_rgb(75, 75, 75), make_color_hsv(0, 255, 255), make_color_hsv(120/360*255, 255, 255), 0, 1, 0);
@@ -92,5 +89,3 @@ draw_sprite_stretched(spr_chonk_ind, 0, width - (width / (5 - formindicators.cho
 draw_sprite_stretched(spr_normie_ind,0, width - (width / (5 - formindicators.normie)), height - (height/8)*1.75, width/4, height/8);
 draw_sprite_stretched(spr_smol_ind,  0, width - (width / (5 - formindicators.smol  )), height - (height/8)*1, width/4, height/8);
 
-
-draw_text(100,100,obj_room.roomnum);
