@@ -268,7 +268,7 @@ if (display_mp != mp) {
 }
 
 if (mp < max_mana) {
-	mp += 1/60;
+	mp += max_mana/6000;
 }
 
 if (place_meeting(x+1,y,obj_abs_enemy) || place_meeting(x-1,y,obj_abs_enemy) || place_meeting(x,y+1,obj_abs_enemy) || place_meeting(x,y-1,obj_abs_enemy)) {
